@@ -2,11 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const classRepRoutes = require('./routes/classRepresentative');
 const classObsRoutes = require('./routes/classObservation');
+const teamRoutes = require('./routes/team');
+const studentRecordRoutes = require('./routes/studentRecord');
+const adminRoutes = require('./routes/admin');
 const sequelize = require('./util/database');
 const app = express();
 
 const ClassRepresentative = require('./models/classRepresentative');
 const ClassObservation = require('./models/classObservation');
+const Team = require('./models/Team');
+const StudentRecord = require('./models/studentRecord');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -30,6 +35,9 @@ app.use((req,res,next)=>{
 
 app.use(classRepRoutes);
 app.use(classObsRoutes);
+app.use(teamRoutes);
+app.use(studentRecordRoutes);
+app.use(adminRoutes);
 app.get('/', (req,res)=> {
     res.send('Hello Node Here For Apis!!')
 })
@@ -46,7 +54,10 @@ app.use((error,req,res,next)=>{
 
 ClassObservation.belongsTo(ClassRepresentative, { constraints: true, onDelete: 'CASCADE' } );
 ClassRepresentative.hasMany(ClassObservation);
-
+Team.belongsTo(ClassRepresentative, { constraints: true, onDelete: 'CASCADE' } );
+ClassRepresentative.hasMany(Team);
+Team.belongsTo(StudentRecord, { constraints: true, onDelete: 'CASCADE' } );
+StudentRecord.hasMany(Team);
 // app.listen(3000)
 
 sequelize
