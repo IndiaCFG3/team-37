@@ -24,8 +24,6 @@ const ClassObservation = sequelize.define('classObservation',{
         type: Sequelize.INTEGER,
         allowNull: false
     },
-  
-  
 });
 
 module.exports = ClassObservation;
