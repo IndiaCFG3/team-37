@@ -8,26 +8,7 @@ const Team = sequelize.define('',{
         allowNull: false,
         primaryKey: true
     },
-    className:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    school:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    Teacher:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    StudentTeacher1:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    StudentTeacher2:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
+    
 });
 
 module.exports = Team;
