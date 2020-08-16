@@ -11,9 +11,15 @@ export default {
                 { Name: 'Goutam', Roll: '2'}
             ],
 
-            Idea: 1,
+            Idea: {
+                Number: 1,
+                Comment: 'This is a nice Idea'
+            },
+
             Plan: 1,
+            
             MakeTest: 1,
+            
             Presentation: 1
         },
         {
