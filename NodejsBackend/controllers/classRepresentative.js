@@ -1,6 +1,4 @@
 
-
-
 exports.getClassRep = (req,res,next) => {
     const classRepId = req.params.classRepId;
     res.status(200).json({
@@ -21,5 +19,4 @@ exports.postClassRep = (req,res,next) => {
         className: className,
         school: school
     })
-
 }

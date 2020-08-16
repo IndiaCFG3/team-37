@@ -15,11 +15,8 @@ export default {
                 Number: 1,
                 Comment: 'This is a nice Idea'
             },
-
             Plan: 1,
-            
             MakeTest: 1,
-            
             Presentation: 1
         },
         {
@@ -58,6 +55,6 @@ export default {
             MakeTest: 3,
             Presentation: 3
         }
-    ]
+    ],
     // CurrentUser: {}
 }
