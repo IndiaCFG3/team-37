@@ -30,4 +30,4 @@ const Team = sequelize.define('',{
     },
 });
 
-module.exports = ClassRepresentative;
+module.exports = Team;
