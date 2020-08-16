@@ -18,6 +18,10 @@ export const CheckCurrentUser = (state) => {
 export const GetTeams = (state) => {
     return state.Teams;
 }
+
+export const GetUserData = (state) => {
+    return state.UserData;
+}
 // export const GetCurrentUserAttr = (state) => {
 //     return state.CurrentUser.Attr;
 // }

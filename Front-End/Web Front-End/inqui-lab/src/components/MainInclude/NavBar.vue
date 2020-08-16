@@ -97,7 +97,7 @@
                     <v-list-item v-for="Content in SideMenu" :key="Content.Title" router :to="Content.Route">
                         <v-list-item-icon>
                             <v-icon class="white--text">
-                                {{Content.Icon}}
+                                {{ Content.Icon }}
                             </v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
@@ -124,8 +124,8 @@ export default {
             ChangeProfileName: false,
             NewProfileName: "",
             SideMenu: [
-                { Title: 'Home', Icon: 'mdi-home', Route:'/'},
-                { Title: 'Teams', Icon: 'mdi-microsoft-teams', Route:'/Teams' }
+                { Title: 'DashBoard', Icon: 'mdi-home', Route:'/DashBoard' },
+                { Title: 'Add User', Icon: 'mdi-plus', Route:'/Add' },
             ],
 
             UserLinks: [
@@ -161,14 +161,6 @@ export default {
     },
 
     computed: {
-        //Extra computed properties here 
-        // GetProfileName: function() {
-        //     return this.$store.getters.GetProfileName;
-        // },
-        
-        // ProfileNamePresent: function() {
-        //     return this.$store.getters.CheckProfileName
-        // },
         ...mapGetters([
             'CheckCurrentUser',
             'GetCurrentUserName',

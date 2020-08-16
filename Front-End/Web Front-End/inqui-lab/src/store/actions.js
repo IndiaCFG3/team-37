@@ -1,21 +1,43 @@
 import axios from 'axios';
+import router from "../router/index.js"
 
 export const LogInUser = ({ commit }, User) => {
-    commit('SET_CURRENT_USER', User); // Done
+    axios.post('http://4ac6ea1b7bae.ngrok.io/adminCheck', User)
+    .then(Response => {
+        if(Response.data.status) {
+            router.push({'path': '/DashBoard'});
+            commit('SET_CURRENT_USER', User);
+        } else {
+            alert('Invalid User or Password')
+        }
+    }).then(error => {
+        console.log(error);
+    })
 
     // Here Post request to validate exsisting user
-    // axios.post('API', User)
-    // .then(Response => {
-    //     commit('SET_CURRENT_USER', User); // Same Commit for both Log in and Sign Up..
-    //     commit('', Response.data);
-    // })
-    // .catch(Error => {
-    //     return {Error: "Email/Password combination was incorrect. Please try again."};
-    // })
 }
 
 export const LogOutUser = ({ commit }) => {
     commit('LOGOUT_USER') // Done
+}
+
+export const AddUser = (context, User) => {
+    axios.post('http://4ac6ea1b7bae.ngrok.io/classRepresentative', User)
+    .then(Response => {
+        // if(Response.POST request Sucessfull!!)
+        console.log(Response);
+    }).catch(error => {
+        console.log(error.message);
+    });
+}
+
+export const LoadUserData = ({ commit }) => {
+    axios.get('http://4ac6ea1b7bae.ngrok.io/classRepresentative')
+    .then(Response => {
+        commit('LOAD_USER_DATA', Response.data.result);
+    }).catch(error => {
+        console.log(error.message);
+    });
 }
 
 export const LoadUsers = ({ commit }) => {
@@ -27,43 +49,4 @@ export const LoadUsers = ({ commit }) => {
 
 export const SubmitUnitForm = ({ commit }, Data) => {
     commit('SUBMIT_UNIT_DATA', Data)
-}
-
-export const GetCityData = ({ commit }) => {
-    axios.get('https://indian-cities-api-nocbegfhqg.now.sh/cities')
-    .then(Response => {
-        commit('SET_CITY_DATA', Response.data);
-    })
-    .catch(Error => {
-        console.log('Caught Error: ', Error)
-    })
-}
-
-export const GetCity = ({dispatch, commit, getters }, Errors) => {
-    var Query = `${getters.GetCurrentCity},${getters.GetCurrentDistrict},${getters.GetCurrentState},India`;
-
-    if(Errors.CityError && !Errors.DistrictError) {
-        Query = `${getters.GetCurrentDistrict},${getters.GetCurrentState},India`;
-
-    } else if(Errors.CityError && Errors.DistrictError){
-        Query = `${getters.GetCurrentState},India`; 
-    }
-
-    axios.get(`https://api.openweathermap.org/data/2.5/find?q=${Query}&units=imperial&appid=f92c1f4990b0574d4a4e4d3dd556f388`)
-    .then(Response => {
-        if(Response.data.count != 0) { // Response has some data..
-            commit('SET_WEATHER_DATA', {'WeatherData':Response.data.list[0], 'ErrorReport': Errors});
-        } else { // Response has no data.. Call Again with one parameter less..
-            if(!Errors.CityError && !Errors.DistrictError) {
-                Errors.CityError = true;
-            } else if (Errors.CityError && !Errors.DistrictError) {
-                Errors.DistrictError = true;
-            }
-    
-            dispatch('GetCity', Errors);
-        }
-    })
-    .catch(Error => {
-        console.log('Caught Error: ', Error)
-    })
 }

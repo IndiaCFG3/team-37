@@ -32,7 +32,7 @@
             
             PasswordRules: {
                 required: value => !!value || 'Password is required',
-                min: v => v.length >= 8 || 'Min 8 characters',
+                min: v => v.length >= 3 || 'Min 3 characters',
             },
 
             EmailRules: [
@@ -46,8 +46,8 @@
         validate () {
             if(this.$refs.form.validate()) {
                 var PayLoad = {
-                    'Email': this.Email,
-                    'Password': this.Password
+                    'email': this.Email,
+                    'password': this.Password
                 }
 
                 this.$store.dispatch('LogInUser', PayLoad);
