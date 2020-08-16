@@ -8,7 +8,6 @@ const classObservation = sequelize.define('',{
         allowNull: false,
         primaryKey: true
     },
-    student:{
         name:{
             type:Sequelize.STRING,
             allowNull: false
@@ -30,7 +29,6 @@ const classObservation = sequelize.define('',{
             type:Sequelize.STRING,
             allowNull: false
         }
-    }
 });
 
 module.exports = classObservation;
