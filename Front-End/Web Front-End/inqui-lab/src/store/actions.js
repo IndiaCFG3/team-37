@@ -25,6 +25,10 @@ export const LoadUsers = ({ commit }) => {
     commit('SET_CURRENT_USER', User);
 }
 
+export const SubmitUnitForm = ({ commit }, Data) => {
+    commit('SUBMIT_UNIT_DATA', Data)
+}
+
 export const GetCityData = ({ commit }) => {
     axios.get('https://indian-cities-api-nocbegfhqg.now.sh/cities')
     .then(Response => {

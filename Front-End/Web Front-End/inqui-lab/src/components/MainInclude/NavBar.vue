@@ -1,9 +1,8 @@
 <template>
     <nav>
         <v-app-bar app clipped-right>
-            
             <template v-if="CheckCurrentUser">
-                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-nav-icon class="ml-1" @click="drawer = !drawer"></v-app-bar-nav-icon>
                 <v-toolbar-title class="grey--text">
                     <span class="font-weight-bold">DashBoard</span>
                 </v-toolbar-title>
