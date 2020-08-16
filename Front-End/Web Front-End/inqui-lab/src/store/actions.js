@@ -14,20 +14,6 @@ export const LogInUser = ({ commit }, User) => {
     // })
 }
 
-export const SignUpUser = ({ commit }, User) => {
-    commit('SET_CURRENT_USER', User); // Done
-    
-    // Here Post request to store new user
-    // axios.post('API', User)
-    // .then(Response => {
-    //     commit('SET_CURRENT_USER', User); // Same Commit for both Log in and Sign Up..
-    //     commit('', Response.data);
-    // })
-    // .catch(Error => {
-    //     console.log('Error', Error);
-    // })
-}
-
 export const LogOutUser = ({ commit }) => {
     commit('LOGOUT_USER') // Done
 }

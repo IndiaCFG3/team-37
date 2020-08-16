@@ -126,12 +126,11 @@ export default {
             NewProfileName: "",
             SideMenu: [
                 { Title: 'Home', Icon: 'mdi-home', Route:'/'},
-                { Title: 'Teams', Icon: 'mdi-home', Route:'/' }
+                { Title: 'Teams', Icon: 'mdi-microsoft-teams', Route:'/Teams' }
             ],
 
             UserLinks: [
                 {Title: 'Login', Route: '/Login'},
-                {Title: 'Register', Route: '/SignUP'}
             ]
         }
     },

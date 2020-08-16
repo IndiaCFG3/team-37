@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
-import SignUP from '../views/SignUP.vue'
+import Teams from '../views/Teams.vue'
 
 Vue.use(VueRouter)
 
@@ -19,9 +19,9 @@ Vue.use(VueRouter)
     component: Login
   },
   {
-    path: '/SignUP',
-    name: 'SignUP',
-    component: SignUP
+    path: '/Teams',
+    name: 'Teams',
+    component: Teams
   },
 ]
 
